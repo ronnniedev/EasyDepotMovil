@@ -8,9 +8,11 @@
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
 /app/src/main/java/ficheros/apykeys
+/app/src/main/res/values/apikeys.xml
 .DS_Store
 /build
 /captures
 .externalNativeBuild
 .cxx
 local.properties
+

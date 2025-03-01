@@ -61,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     s.loginMovil(editUsuario.getText().toString(),editPassword.getText().toString());
-                    Toast.makeText(MainActivity.this, "Login aceptado", Toast.LENGTH_SHORT).show();
+                    Intent logearse = new Intent(MainActivity.this,MapaActivity.class);
+                    startActivity(logearse);
                 } catch (LogicaException e) {
                     Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }

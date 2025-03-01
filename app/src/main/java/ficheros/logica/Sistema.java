@@ -138,7 +138,7 @@ public class Sistema {
 	
 	/**
 	 * Sistema de login para aplicación movil, a traves de el el usuario podra acceder al sistema proporcionando un 
-	 * usuario en forma de email y una contraseña
+	 * usuario en forma de email y una contraseña, tambien logea al cliente dentro del sistema
 	 * @param userEmail : String
 	 * @param password : String
 	 * @return Boolean
@@ -148,6 +148,7 @@ public class Sistema {
 		Cliente user = clientes.get(new Email(userEmail));
 		
 		if(user != null && user.getPassword().compareTo(password) == 0) {
+			setClienteLogeado(user);
 			return true;
 		}
 		throw new LogicaException("ERROR usuario o contraseña incorrectos");

@@ -14,7 +14,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EasyDepotMovil"
         tools:targetApi="31">
-
+        <activity
+            android:name=".NavActivity"
+            android:exported="false"
+            android:label="@string/title_activity_nav" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -29,6 +32,7 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/apiMaps" />
+
         <activity
             android:name=".MapaActivity"
             android:exported="false"
@@ -47,6 +51,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

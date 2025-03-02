@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/itemSoporte"
+        android:icon="@drawable/soporte"
+        android:title="Soporte" />
+    <item
+        android:id="@+id/itemReservas"
+        android:icon="@drawable/reservas"
+        android:title="Mis Reservas" />
+    <item
+        android:id="@+id/itemLogOut"
+        android:icon="@drawable/logout"
+        android:title="Log Out" />
+</menu>

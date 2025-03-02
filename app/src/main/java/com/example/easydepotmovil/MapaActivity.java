@@ -4,15 +4,19 @@ import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.example.easydepotmovil.databinding.ActivityMainBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -22,20 +26,23 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.easydepotmovil.databinding.ActivityMapaBinding;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import ficheros.excepciones.LogicaException;
 import ficheros.excepciones.PersistenciaException;
 import ficheros.logica.Sistema;
 import ficheros.modelo.Local;
 
-public class MapaActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MapaActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private GoogleMap mMap;
     private ActivityMapaBinding binding;
     private Sistema s;
     private List<Local> locales;
     private ImageView logout;
+    private Map<Marker,Local> marcadores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,14 +62,12 @@ public class MapaActivity extends AppCompatActivity implements OnMapReadyCallbac
         binding = ActivityMapaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        logout = (ImageView) findViewById(R.id.logoutImagen);
-        System.out.println(logout);
-
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        binding.menuNav.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.itemLogOut){
                 finish();
             }
+            return true;
         });
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -87,16 +92,26 @@ public class MapaActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap = googleMap;
         // Marca la posicion inicial
         LatLng posicionInicial = new LatLng(43.501459, -5.783492);
-        // mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        // Emparejamos los marcadores con su respectivo local
+        marcadores = new HashMap<Marker,Local>();
         for(Local l: locales){
             String trozos[] = l.getCoordenadas().split(",");
             Double latitud = Double.parseDouble(trozos[0]);
             Double longitud = Double.parseDouble(trozos[1]);
-            mMap.addMarker(new MarkerOptions().position(new LatLng(latitud,longitud))
+            Marker m = mMap.addMarker(new MarkerOptions().position(new LatLng(latitud,longitud))
                     .title(l.getDireccion()));
+            marcadores.put(m,l);
         }
+        mMap.setOnMarkerClickListener(this);
         mMap.moveCamera(CameraUpdateFactory.zoomTo(10));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(posicionInicial));
     }
 
+    @Override
+    public boolean onMarkerClick(@NonNull Marker marker) {
+        Local l = marcadores.get(marker);
+        Toast.makeText(this, l.getDireccion(), Toast.LENGTH_SHORT).show();
+
+        return false;
+    }
 }

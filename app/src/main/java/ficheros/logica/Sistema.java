@@ -27,6 +27,7 @@ public class Sistema {
 	private GestorCorreo gestorCorreo;
 	private static Sistema s;
 	private static Cliente clienteLogeado;
+	private static Local localSeleccionado;
 	
 	/**
 	 * Constructor de 0 parametros de la clase Sistema
@@ -64,6 +65,22 @@ public class Sistema {
 	 */
 	public void setClienteLogeado(Cliente c){
 		clienteLogeado = c;
+	}
+
+	/**
+	 * Devuelve el Local seleccionado dentro del sistema
+	 * @return Local : LocalSeleccionado
+	 */
+	public Local getLocalSeleccionado(){
+		return localSeleccionado;
+	}
+
+	/**
+	 * Establece el local con el que se va a trabajar
+	 * @param l : Local
+	 */
+	public void setLocalSeleccionado(Local l){
+		localSeleccionado = l;
 	}
 	
 	/**

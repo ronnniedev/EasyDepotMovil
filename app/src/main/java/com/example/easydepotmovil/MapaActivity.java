@@ -1,6 +1,8 @@
 package com.example.easydepotmovil;
 
+import android.content.Intent;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -66,6 +68,10 @@ public class MapaActivity extends AppCompatActivity implements OnMapReadyCallbac
             int id = item.getItemId();
             if (id == R.id.itemLogOut){
                 finish();
+            }else if(id == R.id.itemSoporte){
+                Intent correo = new Intent(Intent.ACTION_SENDTO,
+                        Uri.parse("mailto:veronicapersonal1995@gmail.com"));
+                startActivity(correo);
             }
             return true;
         });
@@ -110,8 +116,9 @@ public class MapaActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     public boolean onMarkerClick(@NonNull Marker marker) {
         Local l = marcadores.get(marker);
-        Toast.makeText(this, l.getDireccion(), Toast.LENGTH_SHORT).show();
-
+        s.setLocalSeleccionado(l);
+        Intent moverse = new Intent(MapaActivity.this,ReservaActivity.class);
+        startActivity(moverse);
         return false;
     }
 }

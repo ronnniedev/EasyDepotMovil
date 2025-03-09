@@ -28,6 +28,7 @@ public class Sistema {
 	private static Sistema s;
 	private static Cliente clienteLogeado;
 	private static Local localSeleccionado;
+	private static List <Reserva> reservasACargar;
 	
 	/**
 	 * Constructor de 0 parametros de la clase Sistema
@@ -492,7 +493,7 @@ public class Sistema {
 				return c;
 			}
 		}
-		throw new LogicaException("No hay cabina disponible de ese tipo");
+		throw new LogicaException("No hay cabina disponible con tamaño " + tipoCabina);
 	}
 
 	/**

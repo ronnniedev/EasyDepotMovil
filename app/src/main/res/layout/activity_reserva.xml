@@ -78,7 +78,7 @@
         app:layout_constraintBottom_toTopOf="@+id/divider2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="413dp"
@@ -93,14 +93,321 @@
             android:layout_marginStart="123dp"
             android:layout_marginTop="461dp"
             android:layout_marginEnd="124dp"
-            android:layout_marginBottom="162dp"
+            android:layout_marginBottom="140dp"
             android:background="@drawable/boton_azul"
             android:text="Reservar"
             android:textSize="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/txtTituloLocal2"
+            android:layout_width="362dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="42dp"
+            android:layout_marginEnd="35dp"
+            android:text="Elige el número y tipo de cabinas: "
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtCabSmall"
+            android:layout_width="155dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="92dp"
+            android:layout_marginEnd="176dp"
+            android:text="Cabina pequeña"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgCabPeq"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtDisSmall"
+            android:layout_width="155dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="55dp"
+            android:text="Disponibles:"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/descripcionSmall"
+            app:layout_constraintTop_toBottomOf="@+id/botoneraSmall" />
+
+        <ImageView
+            android:id="@+id/imgCabPeq"
+            android:layout_width="64dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="44dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTituloLocal2"
+            app:srcCompat="@drawable/small_bag" />
+
+        <TextView
+            android:id="@+id/descripcionSmall"
+            android:layout_width="113dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="10dp"
+            android:text="40 cms alto 30 cms fondo"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@+id/botoneraMedium"
+            app:layout_constraintStart_toEndOf="@+id/imgCabPeq"
+            app:layout_constraintTop_toBottomOf="@+id/txtCabSmall" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="412dp"
+            android:layout_height="111dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descripcionSmall">
+
+            <TextView
+                android:id="@+id/txtCabMedium"
+                android:layout_width="155dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="177dp"
+                android:text="Cabina mediana"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imgCabMed"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imgCabMed"
+                android:layout_width="64dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="32dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/medium_bag" />
+
+            <TextView
+                android:id="@+id/descripcionMedium"
+                android:layout_width="113dp"
+                android:layout_height="61dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp"
+                android:text="50 cms alto 40 cms fondo"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/botoneraMedium"
+                app:layout_constraintStart_toEndOf="@+id/imgCabMed"
+                app:layout_constraintTop_toBottomOf="@+id/txtCabMedium" />
+
+            <LinearLayout
+                android:id="@+id/botoneraMedium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="23dp"
+                android:layout_marginBottom="22dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtCabMedium">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/minusMedium"
+                    android:layout_width="63dp"
+                    android:layout_height="39dp"
+                    android:background="@drawable/boton_gris"
+                    android:text="-" />
+
+                <EditText
+                    android:id="@+id/editNumMedium"
+                    android:layout_width="61dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edit_text_border"
+                    android:editable="false"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:text="0"
+                    android:textAlignment="center" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/plusMedium"
+                    android:layout_width="63dp"
+                    android:layout_height="39dp"
+                    android:background="@drawable/boton_azul"
+                    android:text="+" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtDisMedium"
+                android:layout_width="155dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="54dp"
+                android:layout_marginBottom="-8dp"
+                android:text="Disponibles:"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/descripcionMedium" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="409dp"
+            android:layout_height="110dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/botonReservar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/txtCabBig"
+                android:layout_width="155dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginEnd="177dp"
+                android:text="Cabina grande"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imgCabBig"
+                android:layout_width="64dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="1dp"
+                app:layout_constraintEnd_toStartOf="@+id/descripcionBig"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/big_bag" />
+
+            <TextView
+                android:id="@+id/descripcionBig"
+                android:layout_width="113dp"
+                android:layout_height="61dp"
+                android:layout_marginStart="1dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="10dp"
+                android:text="100 cms alto 50 cms fondo"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/botoneraBig"
+                app:layout_constraintStart_toEndOf="@+id/imgCabBig"
+                app:layout_constraintTop_toBottomOf="@+id/txtCabBig" />
+
+            <LinearLayout
+                android:id="@+id/botoneraBig"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="23dp"
+                android:layout_marginBottom="22dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtCabMedium">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/minusBig"
+                    android:layout_width="63dp"
+                    android:layout_height="39dp"
+                    android:background="@drawable/boton_gris"
+                    android:text="-" />
+
+                <EditText
+                    android:id="@+id/editNumBig"
+                    android:layout_width="61dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/edit_text_border"
+                    android:editable="false"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:text="0"
+                    android:textAlignment="center" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/plusBig"
+                    android:layout_width="63dp"
+                    android:layout_height="39dp"
+                    android:background="@drawable/boton_azul"
+                    android:text="+" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtDisBig"
+                android:layout_width="155dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginBottom="-8dp"
+                android:text="Disponibles:"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/descripcionBig"
+                app:layout_constraintTop_toBottomOf="@+id/botoneraBig" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/botoneraSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="23dp"
+            android:layout_marginBottom="304dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/botonReservar"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/minusSmall"
+                android:layout_width="63dp"
+                android:layout_height="39dp"
+                android:background="@drawable/boton_gris"
+                android:text="-" />
+
+            <EditText
+                android:id="@+id/editNumSmall"
+                android:layout_width="61dp"
+                android:layout_height="40dp"
+                android:background="@drawable/edit_text_border"
+                android:editable="false"
+                android:ems="10"
+                android:inputType="number"
+                android:text="0"
+                android:textAlignment="center" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/plusSmall"
+                android:layout_width="63dp"
+                android:layout_height="39dp"
+                android:background="@drawable/boton_azul"
+                android:text="+" />
+        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

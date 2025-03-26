@@ -47,6 +47,7 @@ public class ReservaActivity extends AppCompatActivity {
     private TextView txtDisSmall;
     private TextView txtDisMedium;
     private TextView txtDisBig;
+    private Button botonTienda;
 
 
     @SuppressLint("MissingInflatedId")
@@ -68,6 +69,7 @@ public class ReservaActivity extends AppCompatActivity {
             throw new RuntimeException(e);
         }
 
+        botonTienda = (Button) findViewById(R.id.botonTiendaPuntos);
         imagenVolverReserva = (ImageView) findViewById(R.id.imagenVolverReserva);
         botonReservar = (Button) findViewById(R.id.botonReservar);
         tituloLocal = (TextView) findViewById(R.id.txtTituloLocal);
@@ -89,6 +91,13 @@ public class ReservaActivity extends AppCompatActivity {
         txtDisBig.setText(txtDisBig.getText().toString() + calcularDisponibilidad("Grande"));
 
         tituloLocal.setText(tituloLocal.getText().toString() + " " + l.getDireccion());
+
+        botonTienda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ReservaActivity.this, "Work in progress", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         botonMinusSmall.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,25 +18,29 @@ import ficheros.excepciones.LogicaException;
 import ficheros.excepciones.PersistenciaException;
 import ficheros.logica.Sistema;
 
-public class LoadingActivity extends AppCompatActivity {
+public class LoadingCierreReserva extends AppCompatActivity {
 
     private Sistema s;
 
-    /**
-     * Esta parte carga una pantalla de carga que esta ligada al final de la carga de datos
-     * desde la BDDS
-     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*
-        Hilo para cargar los datos
-         */
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_loading_cierre_reserva);
+
+
+        // Hilo para actualizar la base de datos
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     s = Sistema.getInstance();
+                    Intent intent = getIntent();
+                    // Recogemos el numero de reservas
+                    int idReserva = intent.getIntExtra("reserva",0);
+                    // Realizamos el numero de reservas
+                    s.cerrarReserva(idReserva);
+                    // Cerramos la pantalla de carga
                     cierre();
                 } catch (PersistenciaException e) {
                     throw new RuntimeException(e);
@@ -46,27 +51,22 @@ public class LoadingActivity extends AppCompatActivity {
                 }
             }
         }).start();
-
-
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_loading);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
     }
 
     /**
-     * Cierra la actividad y abre la nueva que tenga que cargar, en este caso el login
+     * Metodo para cerrar la actividad una vez realizadas todas las reservas, devuelve un toast
+     * indicandole al usuario que se han realizado todas las reservas adecuadamente
      */
     private void cierre(){
         Handler handler = new Handler(Looper.getMainLooper());
         handler.post(new Runnable() {
             @Override
             public void run() {
-                Intent cargarMain = new Intent(LoadingActivity.this,MainActivity.class);
-                startActivity(cargarMain);
+                Toast.makeText(LoadingCierreReserva.this, "Reserva cerrada",
+                        Toast.LENGTH_SHORT).show();
+               Intent moverse =
+                       new Intent(LoadingCierreReserva.this,ReservasActivity.class);
+                startActivity(moverse);
                 finish();
             }
         });

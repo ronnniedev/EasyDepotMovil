@@ -34,6 +34,13 @@ public class RegistroActivity extends AppCompatActivity {
     private EditText editNewPassword;
     private Sistema s;
 
+    /**
+     * Pantalla para introducir los datos de registro  y registrar un nuevo usuario
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,6 +69,7 @@ public class RegistroActivity extends AppCompatActivity {
         editApellidos = (EditText) findViewById(R.id.editApellidos);
         editNewPassword = (EditText) findViewById(R.id.editNewPassword);
 
+        // Boton de volver a la pantalla anterior
         botonVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,10 +94,12 @@ public class RegistroActivity extends AppCompatActivity {
                 datos.add(password);
 
                 try {
+                    // Realizamos las comprobaciones pertinentes
                    GestorComprobaciones.comprobarTextoVacio(datos);
                    GestorComprobaciones.comprobarEmail(email);
                     // si ya esta registrado el cliente lanzara excepcion
                     s.buscarCliente(email);
+                    // Le pasamos los datos pertinentes al intent
                     goToken.putExtra("email",email);
                     goToken.putExtra("nombre",nombre);
                     goToken.putExtra("apellidos",apellidos);
@@ -103,7 +113,6 @@ public class RegistroActivity extends AppCompatActivity {
             }
         });
 
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -113,6 +122,7 @@ public class RegistroActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        // Codigo muerto, esta reservado para una pequeña cosa que quiero hacer a futuro >:3c
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK) finish();
     }

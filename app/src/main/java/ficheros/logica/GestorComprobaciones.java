@@ -33,6 +33,10 @@ public class GestorComprobaciones {
 		correosCorrectos.add("@gmail.com");
 		correosCorrectos.add("@outlook.com");
 		correosCorrectos.add("@hotmail.com");
+		correosCorrectos.add("@yahoo.es");
+		correosCorrectos.add("@gmail.es");
+		correosCorrectos.add("@outlook.es");
+		correosCorrectos.add("@hotmail.es");
 		
 		if(email.startsWith("@")) {
 			throw new LogicaException("ERROR formato email incorrecto");

@@ -445,6 +445,23 @@ public class Sistema {
 		}
 		return reservasClientes;
 	}
+
+	/**
+	 * Devuelve una lista de reservas abiertas del cliente proporcionado,
+	 * se supone que el email del mismo esta verificado
+	 * previamente
+	 * @param email : String
+	 * @return
+	 */
+	public List<Reserva> buscarReservasAbiertasCliente(String email) {
+		List <Reserva> reservasClientes = new LinkedList<Reserva>();
+		for(Reserva r: reservas) {
+			if(r.getEmailCliente().compareTo(email) == 0 && r.getFechaSalida() == null) {
+				reservasClientes.add(r);
+			}
+		}
+		return reservasClientes;
+	}
 	/**
 	 * Buscar las reservas de un local concreto
 	 * @param localId : int

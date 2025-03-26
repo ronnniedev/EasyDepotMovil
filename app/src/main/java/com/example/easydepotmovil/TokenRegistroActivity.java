@@ -34,6 +34,13 @@ public class TokenRegistroActivity extends AppCompatActivity {
     private Sistema s;
     private TextView textoToken;
 
+    /**
+     * En esta pantalla enviaremos un correo para poder realizar el registro
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +70,7 @@ public class TokenRegistroActivity extends AppCompatActivity {
         botonVolver = (Button) findViewById(R.id.btnVolverToken);
         textoToken = (TextView) findViewById(R.id.textoToken);
 
+        // Establece el titulo de la pantalla
         textoToken.setText("Token enviado a :\n " + email);
 
 
@@ -70,6 +78,7 @@ public class TokenRegistroActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try{
+                    // Si el token es correcto el cliente se registra
                     if(token == Integer.parseInt(editToken.getText().toString())){
                         new Thread(new Runnable() {
                             @Override
@@ -81,6 +90,7 @@ public class TokenRegistroActivity extends AppCompatActivity {
                                 }
                             }
                         }).start();
+                        // Avisamos al usuario de que el registro que es un exito
                         Toast.makeText(TokenRegistroActivity.this, "Registro exitoso"
                                 , Toast.LENGTH_SHORT).show();
                         // Devolvemos un result ok para indicar a la activida anterior que
@@ -88,10 +98,12 @@ public class TokenRegistroActivity extends AppCompatActivity {
                         setResult(RESULT_OK);
                         finish();
                     }else{
+                        // Si el token no es correcto informamos al cliente
                         Toast.makeText(TokenRegistroActivity.this, "Token incorrecto"
                                 , Toast.LENGTH_SHORT).show();
                     }
                 }catch (NumberFormatException e){
+                    //Si dejan el token vacio informamos al usuario
                     Toast.makeText(TokenRegistroActivity.this, "El campo no puede estar vacio"
                                     , Toast.LENGTH_SHORT).show();
                 }
@@ -100,6 +112,7 @@ public class TokenRegistroActivity extends AppCompatActivity {
             }
         });
 
+        // Volvemos a la pantalla anterior
         botonVolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

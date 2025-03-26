@@ -15,6 +15,12 @@
         android:theme="@style/Theme.EasyDepotMovil"
         tools:targetApi="31">
         <activity
+            android:name=".LoadingCierreReserva"
+            android:exported="false" />
+        <activity
+            android:name=".ReservasActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoadingReserva"
             android:exported="false" />
         <activity

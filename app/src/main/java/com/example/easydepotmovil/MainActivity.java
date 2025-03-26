@@ -27,6 +27,13 @@ public class MainActivity extends AppCompatActivity {
     private EditText editUsuario;
     private EditText editPassword;
 
+    /**
+     * Pantalla login
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
             throw new RuntimeException(e);
         }
 
+        // Nos mueve a la siguiente pantalla, la de registro en este caso
         botonRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Nos lleva al mapa de navegación en caso de que el login sea correcto, en caso contrario
+        // devuelve un toas con el error
         botonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

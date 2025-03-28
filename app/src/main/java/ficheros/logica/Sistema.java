@@ -105,7 +105,6 @@ public class Sistema {
 	 */
 	public static Sistema getInstance() throws PersistenciaException, SQLException, LogicaException {
 		if(s == null) {
-			System.out.println("entra");
 			s = new Sistema();
 		}
 		System.out.println(s);

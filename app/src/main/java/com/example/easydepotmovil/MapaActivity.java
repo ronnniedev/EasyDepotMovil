@@ -1,6 +1,7 @@
 package com.example.easydepotmovil;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -45,6 +46,7 @@ public class MapaActivity extends AppCompatActivity implements OnMapReadyCallbac
     private List<Local> locales;
     private ImageView logout;
     private Map<Marker,Local> marcadores;
+    private SharedPreferences preferencias;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,11 @@ public class MapaActivity extends AppCompatActivity implements OnMapReadyCallbac
         binding.menuNav.setOnItemSelectedListener(item -> {
             int id = item.getItemId();
             if (id == R.id.itemLogOut){
+                preferencias = getSharedPreferences("preferencias",MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferencias.edit();
+                editor.putString("usuario",null);
+                editor.putString("password",null);
+                editor.commit();
                 finish();
             }else if(id == R.id.itemSoporte){
                 Intent correo = new Intent(Intent.ACTION_SENDTO,

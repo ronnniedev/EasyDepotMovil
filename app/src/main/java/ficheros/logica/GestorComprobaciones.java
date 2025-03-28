@@ -65,7 +65,16 @@ public class GestorComprobaciones {
 		}
 		return true;
 	}
-	
-	
 
+
+    public static void comprobarTelefono(String telefono) throws LogicaException {
+		try {
+			int numero = Integer.parseInt(telefono);
+			if(telefono.length() != 9){
+				throw new LogicaException("Introduza un numero telefonico de 9 cifras");
+			}
+		}catch(NumberFormatException e){
+			throw new LogicaException("Introduza un numero telefonico");
+		}
+    }
 }

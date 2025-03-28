@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".IncidenciaActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="406dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="120dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editIncidencia"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAceptarIncidencia"
+            android:layout_width="154dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginBottom="17dp"
+            android:background="@drawable/boton_azul"
+            android:text="Aceptar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnCancelarIncidencia"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnCancelarIncidencia"
+            android:layout_width="154dp"
+            android:layout_height="61dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="51dp"
+            android:layout_marginBottom="17dp"
+            android:background="@drawable/boton_gris"
+            android:text="Cancelar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnAceptarIncidencia"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/editNumero"
+        android:layout_width="228dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="224dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/edit_text_border"
+        android:ems="10"
+        android:hint="Numero"
+        android:inputType="number"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editIncidencia"
+        android:layout_width="330dp"
+        android:layout_height="335dp"
+        android:layout_marginTop="360dp"
+        android:layout_marginEnd="40dp"
+        android:background="@drawable/edit_text_border"
+        android:ems="10"
+        android:hint="Escribe aqui tu incidencia"
+        android:gravity="top|left"
+        android:inputType="textMultiLine"
+        android:text=""
+        android:textAlignment="gravity"
+        android:textDirection="firstStrongLtr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtTelefono"
+        android:layout_width="154dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="232dp"
+        android:layout_marginEnd="34dp"
+        android:text="Tu telefono:"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/editNumero"
+        app:layout_constraintHorizontal_bias="0.128"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tituloIncidencia"
+        android:layout_width="270dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="34dp"
+        android:text="Datos de tu reserva:"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/editNumero"
+        app:layout_constraintHorizontal_bias="0.038"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txttituloIncidencia"
+        android:layout_width="300dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="70dp"
+        android:text="Describenos tu incidencia:"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editNumero" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="42dp"
+        app:layout_constraintBottom_toTopOf="@+id/editNumero"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tituloIncidencia">
+
+        <TextView
+            android:id="@+id/txtDireccionIncidencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="13dp"
+            android:text="TextView"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtCabinaIncidencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="6dp"
+            android:text="TextView"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDireccionIncidencia" />
+
+        <TextView
+            android:id="@+id/txtFechaIncidencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="7dp"
+            android:text="TextView"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCabinaIncidencia" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,11 @@
 package com.example.easydepotmovil;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -26,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private Sistema s;
     private EditText editUsuario;
     private EditText editPassword;
+    private SharedPreferences preferencias;
+    private CheckBox cbRecuerdame;
 
     /**
      * Pantalla login
@@ -44,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         botonRegistrar = (Button) findViewById(R.id.btnRegistrar);
         editUsuario = (EditText) findViewById(R.id.editUsuario);
         editPassword = (EditText) findViewById(R.id.editPassword);
+        cbRecuerdame = findViewById(R.id.cbLogin);
 
         try {
             s = Sistema.getInstance();
@@ -53,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
             throw new RuntimeException(e);
         } catch (LogicaException e) {
             throw new RuntimeException(e);
+        }
+
+        preferencias = getSharedPreferences("preferencias",MODE_PRIVATE);
+        String usuario = preferencias.getString("usuario",null);
+
+        if(usuario != null){
+            String password = preferencias.getString("password",null);
+            logear(usuario,password);
         }
 
         // Nos mueve a la siguiente pantalla, la de registro en este caso
@@ -69,13 +82,7 @@ public class MainActivity extends AppCompatActivity {
         botonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    s.loginMovil(editUsuario.getText().toString(),editPassword.getText().toString());
-                    Intent logearse = new Intent(MainActivity.this,MapaActivity.class);
-                    startActivity(logearse);
-                } catch (LogicaException e) {
-                    Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
+                logear(editUsuario.getText().toString(),editPassword.getText().toString());
             }
         });
 
@@ -85,5 +92,21 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    public void logear(String user,String password){
+        try {
+            s.loginMovil(user,password);
+            Intent logearse = new Intent(MainActivity.this,MapaActivity.class);
+            if(cbRecuerdame.isChecked()){
+                SharedPreferences.Editor editor = preferencias.edit();
+                editor.putString("usuario",user);
+                editor.putString("password",password);
+                editor.commit();
+            }
+            startActivity(logearse);
+        } catch (LogicaException e) {
+            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 }

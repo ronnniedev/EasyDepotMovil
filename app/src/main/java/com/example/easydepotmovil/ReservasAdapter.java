@@ -96,6 +96,19 @@ class ReservasAdapter extends RecyclerView.Adapter<ReservasAdapter.MyViewHolder>
                 ((Activity)context).finish();
             }
         });
+
+        holder.btIncidencia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!r.isIncidencia()){
+                    Intent moverse = new Intent(context,IncidenciaActivity.class);
+                    moverse.putExtra("reserva",r.getIdReserva());
+                    context.startActivity(moverse);
+                }else{
+                    Toast.makeText(context, "Incidencia ya abierta", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override

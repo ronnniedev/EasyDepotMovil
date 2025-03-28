@@ -1,0 +1,5 @@
+Version 0.61:
+
+- Funcion de "Recuerdame en este dispositivo" implementada en el login
+- Ya se pueden crear incidencias desde la seccion de reservas
+- Ajustes en documentacion

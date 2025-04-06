@@ -8,7 +8,7 @@ public class Articulo {
 	private int idLocal;
 	private String nombre;
 	private int stock;
-	private double precio;
+	private int precio;
 	private String imagen;
 	
 	/**
@@ -20,7 +20,7 @@ public class Articulo {
 	 * @param precio : double
 	 * @param imagen : String
 	 */
-	public Articulo(String idArticulo, int idLocal, String nombre, int stock, double precio, String imagen) {
+	public Articulo(String idArticulo, int idLocal, String nombre, int stock, int precio, String imagen) {
 		super();
 		this.idArticulo = idArticulo;
 		this.idLocal = idLocal;
@@ -100,7 +100,7 @@ public class Articulo {
 	/**
 	 * @return the precio
 	 */
-	public double getPrecio() {
+	public int getPrecio() {
 		return precio;
 	}
 
@@ -108,7 +108,7 @@ public class Articulo {
 	/**
 	 * @param precio the precio to set
 	 */
-	public void setPrecio(double precio) {
+	public void setPrecio(int precio) {
 		this.precio = precio;
 	}
 

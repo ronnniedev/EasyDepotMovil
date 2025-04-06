@@ -95,7 +95,8 @@ public class ReservaActivity extends AppCompatActivity {
         botonTienda.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ReservaActivity.this, "Work in progress", Toast.LENGTH_SHORT).show();
+                Intent moverse = new Intent(ReservaActivity.this,TiendaActivity.class);
+                startActivity(moverse);
             }
         });
 

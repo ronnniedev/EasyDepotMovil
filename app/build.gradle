@@ -66,6 +66,9 @@ dependencies {
 
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.29'
 
+    // https://mvnrepository.com/artifact/com.cloudinary/cloudinary-android
+    implementation group: 'com.cloudinary', name: 'cloudinary-http5', version: '2.1.0'
+
     buildscript {
         dependencies {
             classpath "com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin:2.0.1"

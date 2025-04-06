@@ -57,8 +57,8 @@
         android:layout_marginEnd="18dp"
         android:layout_marginBottom="11dp"
         android:background="@drawable/boton_azul"
-        android:drawableLeft="@drawable/maquina_expendedora"
         android:text="Tienda"
+        android:drawableLeft="@drawable/maquina_expendedora"
         app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imagenVolverReserva"
@@ -164,7 +164,6 @@
             android:layout_marginEnd="10dp"
             android:text="40 cms alto 30 cms fondo"
             android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/botoneraMedium"
             app:layout_constraintStart_toEndOf="@+id/imgCabPeq"
             app:layout_constraintTop_toBottomOf="@+id/txtCabSmall" />
 

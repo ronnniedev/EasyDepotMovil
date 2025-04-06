@@ -80,7 +80,7 @@ public class GestorJDBC {
 				+ "    idLocal INT NOT NULL,"
 				+ "    nombre VARCHAR(100) NOT NULL,"
 				+ "    stock INT NOT NULL,"
-				+ "    precio NUMERIC(10,2) NOT NULL,"
+				+ "    precio INT NOT NULL,"
 				+ "    imagen VARCHAR(100),"
 				+ "    FOREIGN KEY (idLocal) REFERENCES locales(idLocal)"
 				+ ");";
@@ -721,7 +721,7 @@ public class GestorJDBC {
 		int idLocal = rs.getInt(2);
 		String nombre = rs.getString(3);
 		int stock = rs.getInt(4);
-		double precio = rs.getDouble(5);
+		int precio = rs.getInt(5);
 		String imagen = rs.getString(6);
 		
 		return new Articulo(idArticulo,idLocal,nombre,stock,precio,imagen);

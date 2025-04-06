@@ -313,7 +313,7 @@ public class Sistema {
 	 * @return boolean
 	 * @throws LogicaException
 	 */
-	public Boolean addArticulo(int idLocal,String nombre,int stock,double precio,String imagen) throws LogicaException {
+	public Boolean addArticulo(int idLocal,String nombre,int stock,int precio,String imagen) throws LogicaException {
 		Local l = buscarLocal(idLocal);
 		
 		if(l == null) {

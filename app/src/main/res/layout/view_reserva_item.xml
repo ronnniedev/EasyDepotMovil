@@ -6,59 +6,74 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        app:cardBackgroundColor="@color/gris"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="8dp"
+        android:background="#F6F6F6"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp">
+            android:layout_height="120dp"
+            android:background="#F6F6F6">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/botonIncidencia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="2dp"
                 android:layout_marginTop="54dp"
                 android:layout_marginEnd="16dp"
-                android:text="Incidencia"
+                android:layout_marginBottom="3dp"
                 android:background="@drawable/boton_azul"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Incidencia"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.263"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/botonReserva"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/botonReserva"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cerrar Reserva"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="9dp"
+                android:layout_marginBottom="3dp"
                 android:background="@drawable/boton_azul"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Cerrar Reserva"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.532"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/botonIncidencia"
+                app:layout_constraintStart_toEndOf="@+id/botonCabina"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/botonCabina"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:text="Abrir Cabina"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="3dp"
                 android:background="@drawable/boton_azul"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Abrir Cabina"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/botonReserva"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
@@ -95,10 +110,12 @@
                 android:layout_width="104dp"
                 android:layout_height="20dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="-5dp"
                 android:text="Cabina: "
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.49" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

@@ -26,23 +26,25 @@
         android:id="@+id/btnComprarArticulos"
         android:layout_width="135dp"
         android:layout_height="51dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginBottom="76dp"
-        android:text="Comprar"
+        android:layout_marginStart="56dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/boton_azul"
+        android:text="Comprar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnVolverTienda" />
+        app:layout_constraintStart_toEndOf="@+id/btnVolverTienda" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnVolverTienda"
         android:layout_width="135dp"
         android:layout_height="51dp"
-        android:layout_marginEnd="41dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/boton_gris"
         android:text="Volver"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/btnComprarArticulos"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tituloTienda"
@@ -57,10 +59,10 @@
 
     <TextView
         android:id="@+id/txtPuntos"
-        android:layout_width="145dp"
-        android:layout_height="37dp"
+        android:layout_width="144dp"
+        android:layout_height="26dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="65dp"
         android:text="Puntos:"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,12 +72,10 @@
         android:id="@+id/txtPrecio"
         android:layout_width="145dp"
         android:layout_height="0dp"
-        android:layout_marginStart="83dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="22dp"
+        android:layout_marginTop="65dp"
+        android:layout_marginEnd="16dp"
         android:text="A pagar:"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtPuntos"
-        app:layout_constraintTop_toBottomOf="@+id/tituloTienda" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

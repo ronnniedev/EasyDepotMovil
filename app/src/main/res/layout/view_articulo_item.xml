@@ -6,21 +6,23 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/font"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        app:cardBackgroundColor="@color/gris"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="8dp"
+        app:cardBackgroundColor="#CAC0C0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp">
+            android:layout_height="120dp"
+            android:background="#F6F6F6">
 
             <LinearLayout
                 android:id="@+id/botoneraBig"
@@ -28,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
                 android:layout_marginBottom="4dp"
-                android:background="#FFFFFF"
+                android:background="#F6F6F6"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent">
@@ -73,11 +75,17 @@
                 android:id="@+id/preguntaArticulo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="136dp"
                 android:layout_marginTop="48dp"
-                android:text="¿Cuantos quieres?"
+                android:layout_marginEnd="56dp"
+                android:layout_marginBottom="1dp"
+                android:text="Cantidad"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/botoneraBig"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.985"
                 app:layout_constraintStart_toEndOf="@+id/imagenArticulo"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
 
             <ImageView
                 android:id="@+id/imagenArticulo"
@@ -124,4 +132,5 @@
                 app:layout_constraintTop_toBottomOf="@+id/imagenArticulo" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

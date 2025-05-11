@@ -35,7 +35,7 @@ public class TiendaActivity extends AppCompatActivity {
     private List<Articulo> articulos;
     private RecyclerView recyclerView;
     private Button btnVolver,btnComprar;
-    private TextView txtPuntos;
+    private TextView txtPuntos,txtPrecio;
     private ArticulosAdapter articulosAdapter;
     private Cliente c;
 
@@ -71,8 +71,11 @@ public class TiendaActivity extends AppCompatActivity {
         btnComprar = findViewById(R.id.btnComprarArticulos);
 
         txtPuntos = findViewById(R.id.txtPuntos);
+        txtPrecio = findViewById(R.id.txtPrecio);
 
         txtPuntos.setText("Puntos: " + c.getPuntosTienda());
+        txtPrecio.setText("A pagar: 0");
+
 
         btnVolver.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +102,8 @@ public class TiendaActivity extends AppCompatActivity {
                             , "No tienes suficientes puntos", Toast.LENGTH_SHORT).show();
                 }else{
                     c.setPuntosTienda(c.getPuntosTienda()-articulosAdapter.getPrecio());
+                    articulosAdapter.resetPrecio();
+                    txtPrecio.setText("A pagar: 0");
                    new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -128,5 +133,9 @@ public class TiendaActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void cambiarPrecio(int precio){
+        txtPrecio.setText("A pagar: " + precio);
     }
 }

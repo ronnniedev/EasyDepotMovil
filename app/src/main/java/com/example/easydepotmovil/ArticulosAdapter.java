@@ -37,11 +37,11 @@ public class ArticulosAdapter extends RecyclerView.Adapter<ArticulosAdapter.MyVi
     private int precio;
     private List<Articulo> articulos;
     private Sistema s;
-    private Context context;
+    private TiendaActivity context;
     private Semaphore semaforo = new Semaphore(1);
     private GestorCloudinary cloudinary = new GestorCloudinary();
 
-    public ArticulosAdapter(Context context,List <Articulo>articulos,Sistema s){
+    public ArticulosAdapter(TiendaActivity context,List <Articulo>articulos,Sistema s){
         this.precio = 0;
         this.context = context;
         this.articulos = articulos;
@@ -153,6 +153,7 @@ public class ArticulosAdapter extends RecyclerView.Adapter<ArticulosAdapter.MyVi
                     valorSelector -= 1;
                     holder.selector.setText(valorSelector + "");
                     precio -= a.getPrecio();
+                    context.cambiarPrecio(precio);
                     a.setStock(a.getStock()+1);
                 }
             }
@@ -166,12 +167,17 @@ public class ArticulosAdapter extends RecyclerView.Adapter<ArticulosAdapter.MyVi
                     valorSelector += 1;
                     holder.selector.setText(valorSelector + "");
                     precio += a.getPrecio();
+                    context.cambiarPrecio(precio);
                     a.setStock(a.getStock()-1);
                 }
             }
         });
 
 
+    }
+
+    public void resetPrecio() {
+        precio = 0;
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {

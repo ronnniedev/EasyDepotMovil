@@ -294,7 +294,7 @@ public class Sistema {
 		l.setNumeroReservas(l.getNumeroReservas() + 1);
 		l.setIngresos(l.getIngresos() + 8.10);
 		c.setNumeroReservas(c.getNumeroReservas() + 1);
-		c.setPuntosTienda(c.getPuntosTienda()+10);
+		c.setPuntosTienda(c.getPuntosTienda()+100);
 		cab.setReservada(true);
 		
 		// Actualizamos valores en base de datos

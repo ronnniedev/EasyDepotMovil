@@ -10,12 +10,12 @@
     <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="410dp"
-        android:layout_height="727dp"
+        android:layout_width="418dp"
+        android:layout_height="647dp"
+        app:layout_constraintBottom_toTopOf="@+id/menuNav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloMapa"
         tools:context=".MapaActivity" />
 
     <ImageView
@@ -23,23 +23,26 @@
         android:layout_width="441dp"
         android:layout_height="68dp"
         android:layout_marginStart="1dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="3dp"
         app:layout_constraintBottom_toTopOf="@+id/map"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/logologin" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/menuNav"
-        android:layout_width="408dp"
-        android:layout_height="82dp"
+        android:layout_width="409dp"
+        android:layout_height="130dp"
         android:layout_gravity="fill_horizontal"
-        android:layout_marginStart="3dp"
+        android:layout_marginStart="2dp"
         android:layout_marginEnd="1dp"
-        app:layout_constraintBottom_toBottomOf="@+id/map"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_navmenu" />
 

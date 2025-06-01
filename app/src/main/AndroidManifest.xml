@@ -15,30 +15,37 @@
         android:theme="@style/Theme.EasyDepotMovil"
         tools:targetApi="31">
         <activity
+            android:name=".activity_vending_machine_loading"
+            android:screenOrientation="portrait"
+            android:exported="false" />
+        <activity
             android:name=".LoadingTienda"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".TiendaActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".IncidenciaActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".LoadingCierreReserva"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".ReservasActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".LoadingReserva"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".ReservaActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
-        <activity
-            android:name=".NavActivity"
-            android:exported="false"
-            android:label="@string/title_activity_nav" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -56,19 +63,24 @@
 
         <activity
             android:name=".MapaActivity"
+            android:screenOrientation="portrait"
             android:exported="false"
             android:label="@string/title_activity_mapa" />
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".TokenRegistroActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".RegistroActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".LoadingActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

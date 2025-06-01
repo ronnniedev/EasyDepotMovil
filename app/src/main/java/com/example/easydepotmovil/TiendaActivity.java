@@ -127,8 +127,10 @@ public class TiendaActivity extends AppCompatActivity {
                    }).start();
                    txtPuntos.setText("Puntos: " + c.getPuntosTienda());
                    articulosAdapter.actualizarStocks(recyclerView);
-                    Toast.makeText(TiendaActivity.this,
-                            "Compra realizada con exito", Toast.LENGTH_SHORT).show();
+                    Intent cargarVenta = new Intent(TiendaActivity.this,
+                            activity_vending_machine_loading.class);
+                    startActivity(cargarVenta);
+
                 }
             }
         });
